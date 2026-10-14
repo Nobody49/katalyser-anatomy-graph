@@ -1,0 +1,16 @@
+predicate	reads_forward	reads_backward	directional	transitive	edges	definition
+ADJACENT_TO	adjacent to	adjacent to	f	f	3	The two structures touch or are separated only by a plane of tissue. Symmetric, and therefore stored once: A adjacent to B is the same claim as B adjacent to A.
+ANTERIOR_TO	anterior to	posterior to	t	f	7	The subject lies in front of the object in standard anatomical position.
+ATTACHES_TO	attaches to	attachment of	t	f	171	The subject is attached to the object: a tendon to a bone, a ligament to a capsule. FMA attaches_to.
+BRANCH_OF	branches from	gives rise to	t	t	1748	The subject arises from the object in an arterial, ductal or nervous tree. Transitive: a branch of a branch is downstream of the trunk.
+CONSTITUTIONAL_PART_OF	makes up	is made of	t	t	471	A part that is WHAT THE WHOLE IS MADE OF: renal cortex, gastric mucosa, myocardium. FMA constitutional_part_of. If you would name it as a tissue or a layer rather than as a place, this is the predicate.
+CONTINUOUS_WITH	continues as	continues from	f	f	12	The two structures are one anatomical continuity with a named transition. The proposition has one canonical symmetric identity; both original source-oriented relationship rows may be retained.
+DRAINS_INTO	drains into	drained by	t	f	29	The subject empties its contents into the object.
+INDIRECTLY_SUPPLIES	indirectly supplies	indirectly supplied by	t	f	4	"The subject reaches the object only through intermediate vessels: the coeliac trunk indirectly supplies the spleen, and the splenic artery supplies it. Never an answer to ""which vessel supplies this territory"" — that question wants the direct supplier, and answering it with the trunk is wrong."
+IS_A	is a kind of	kinds of it include	t	t	75	The subject is a kind of the object. Definitional rather than structural; imported from SNOMED and FMA, where it is the backbone of the concept model.
+MEDIAL_TO	medial to	lateral to	t	f	4	The subject lies closer to the midline than the object.
+REGIONAL_PART_OF	is a region of	is divided into	t	t	800	A part carved out by WHERE it is: fundus of the stomach, upper pole of the kidney, segment IV of the liver. FMA regional_part_of. If the part is named by its position or by a surgical/imaging landmark, this is the predicate.
+SUPERIOR_TO	superior to	inferior to	t	f	20	The subject lies above the object in standard anatomical position. Proposed from measured segmentations across many subjects, never from one: a relation true in 54 per cent of people is not anatomy.
+SUPPLIES	supplies	supplied by	t	f	105	"The subject provides arterial supply or innervation to the object. Read by ""which vessel supplies this territory"" cards, the question form behind every infarct pattern."
+SYSTEMIC_PART_OF	belongs to	includes the organ	t	t	683	Membership of a body system, by WHAT IT DOES: the liver in the digestive system, the kidney in the urinary system. FMA systemic_part_of. The edge that makes an anatomy walk follow the body rather than the taxonomy — and the one a student is taught first.
+TRIBUTARY_OF	drains into	is drained by	t	t	89	The subject drains into the object in a venous or lymphatic tree.
