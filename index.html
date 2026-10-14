@@ -39,7 +39,7 @@ footer a{color:var(--accent)}
   <h1>Katalyser Anatomy Graph</h1>
   <p class="sub">A frozen snapshot (14 October 2026) of the openly licensed part of the Katalyser anatomy graph: <span id="count">…</span>. Search a structure to see how it connects.</p>
   <div class="search">
-    <input id="q" placeholder="Search a structure, e.g. left coronary artery" autocomplete="off" aria-label="Search a structure">
+    <input id="q" placeholder="Search a structure or ID, e.g. left coronary artery or FMA:50040" autocomplete="off" aria-label="Search a structure">
     <ul class="hits" id="hits" hidden></ul>
   </div>
   <div class="grid">
@@ -86,6 +86,8 @@ footer a{color:var(--accent)}
     for (const [p,o,src] of out.get(id) || []) { const k = g.predicates[p].forward; (groups.get(k)||groups.set(k,[]).get(k)).push([o,src]); }
     for (const [p,s,src] of inc.get(id) || []) { const k = g.predicates[p].backward || g.predicates[p].forward; (groups.get(k)||groups.set(k,[]).get(k)).push([s,src]); }
     if (!groups.size) d.append(el('p','No relationships in this snapshot.'));
+    const nOut=(out.get(id)||[]).length, nIn=(inc.get(id)||[]).length;
+    if (nOut>40 || nIn>40){ const t=el('p','The picture shows at most 40 outgoing and 40 incoming relationships; the list below shows all '+(nOut+nIn)+'.'); t.className='src'; d.append(t); }
     for (const [k, list] of [...groups].sort()){
       d.append(el('h3', k));
       const ul = el('ul');
@@ -107,7 +109,7 @@ footer a{color:var(--accent)}
   }
 
   const q = document.getElementById('q'), hits = document.getElementById('hits');
-  const index = g.nodes.map(n => [n.label.toLowerCase(), n]);
+  const index = g.nodes.map(n => [(n.label+' '+n.id+' '+n.xrefs.join(' ')).toLowerCase(), n]);
   let sel = -1;
   q.addEventListener('input', () => {
     const t = q.value.trim().toLowerCase(); hits.replaceChildren(); sel = -1;
