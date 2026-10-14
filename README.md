@@ -2,7 +2,7 @@
 
 A one-time, read-only snapshot of the openly licensed part of the anatomy graph behind [Katalyser](https://katalyser.com), a medical-education platform. It is published to show the graph, not for editing: there are no updates, issues or pull requests.
 
-**Browse it:** open `index.html` (or the GitHub Pages site for this repository), search a structure, and follow its connections.
+**Browse it:** <https://nobody49.github.io/katalyser-anatomy-graph/>. Search a structure and follow its connections.
 
 | | |
 |---|---|
